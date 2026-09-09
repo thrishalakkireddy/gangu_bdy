@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Gangu Kothi ❤️</title>
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#a18cd1);
+    color:white;
+}
+
+.screen{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:25px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.screen.active{
+    display:flex;
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.password-card{
+    width:min(380px,95vw);
+    padding:30px 20px;
+    border-radius:30px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.character{
+    font-size:85px;
+    margin-bottom:10px;
+}
+
+.password-card h1{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.password-card p{
+    line-height:1.6;
+}
+
+.pass-dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:25px 0;
+}
+
+.dot{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:white;
+    opacity:.25;
+    transition:.2s;
+}
+
+.dot.active{
+    opacity:1;
+    transform:scale(1.25);
+}
+
+.keypad{
+    width:290px;
+    max-width:100%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.key{
+    height:62px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:#e84d7b;
+    font-size:19px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 7px 15px rgba(0,0,0,.2);
+    transition:.15s;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.key:active{
+    transform:scale(.85);
+}
+
+.status{
+    min-height:30px;
+    margin-top:18px;
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-title{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.count{
+    font-size:clamp(100px,30vw,180px);
+    font-weight:bold;
+    text-shadow:0 0 30px rgba(255,255,255,.8);
+    animation:pulse .8s infinite;
+}
+
+@keyframes pulse{
+
+    50%{
+        transform:scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+.birthday h1{
+    font-size:clamp(38px,10vw,75px);
+    animation:pop 1s ease;
+}
+
+.birthday h2{
+    font-size:clamp(28px,8vw,55px);
+    margin:15px 0;
+}
+
+@keyframes pop{
+
+    0%{
+        transform:scale(.2);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.next{
+    margin-top:30px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#e84d7b;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    -webkit-tap-highlight-color:transparent;
+}
+
+.next:active{
+    transform:scale(.95);
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+.cake-area{
+    position:relative;
+    width:280px;
+    height:230px;
+    margin:25px auto;
+}
+
+.cake{
+    position:absolute;
+    bottom:20px;
+    left:25px;
+    width:230px;
+}
+
+.cake-bottom{
+    height:65px;
+    background:#ff9fbd;
+    border-radius:12px;
+}
+
+.cake-top{
+    position:absolute;
+    bottom:48px;
+    left:20px;
+    width:190px;
+    height:60px;
+    background:#ffc4d7;
+    border-radius:12px;
+}
+
+.cream{
+    position:absolute;
+    bottom:90px;
+    left:35px;
+    width:160px;
+    height:25px;
+    background:white;
+    border-radius:50%;
+}
+
+.plate{
+    position:absolute;
+    bottom:8px;
+    left:0;
+    width:280px;
+    height:20px;
+    background:white;
+    border-radius:50%;
+}
+
+.candles{
+    position:absolute;
+    bottom:108px;
+    left:48px;
+    display:flex;
+    gap:13px;
+}
+
+.candle{
+    width:22px;
+    height:65px;
+    background:white;
+    border-radius:5px;
+    position:relative;
+}
+
+.flame{
+    position:absolute;
+    width:20px;
+    height:28px;
+    top:-29px;
+    left:1px;
+    background:#ffd43b;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    animation:flicker .2s infinite alternate;
+}
+
+@keyframes flicker{
+
+    from{
+        transform:rotate(-45deg) scale(1);
+    }
+
+    to{
+        transform:rotate(-42deg) scale(1.15);
+    }
+
+}
+
+.candle.off .flame{
+    display:none;
+}
+
+.blow-status{
+    font-size:18px;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-box{
+    width:min(650px,95vw);
+    max-height:72vh;
+    overflow-y:auto;
+    padding:35px;
+    border-radius:18px;
+    background:#fff8ed;
+    color:#663747;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    text-align:left;
+    animation:letterOpen 1.2s ease;
+}
+
+@keyframes letterOpen{
+
+    from{
+        transform:scale(.2) rotateY(90deg);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1) rotateY(0);
+        opacity:1;
+    }
+
+}
+
+.letter-box h1{
+    text-align:center;
+    font-family:Georgia,serif;
+    margin-bottom:25px;
+    color:#d94f7d;
+}
+
+.letter-content{
+    font-family:Georgia,serif;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.letter-content p{
+    margin-bottom:18px;
+}
+
+.signature{
+    text-align:right;
+    font-style:italic;
+    font-size:20px;
+    margin-top:25px;
+}
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+.photo-title{
+    margin-bottom:20px;
+}
+
+.photo-container{
+    width:min(350px,90vw);
+    height:min(450px,62vh);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.photo-container img{
+    max-width:100%;
+    max-height:100%;
+    border-radius:25px;
+    object-fit:cover;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    animation:photoIn 1s ease;
+}
+
+@keyframes photoIn{
+
+    from{
+        opacity:0;
+        transform:scale(.75) rotate(-5deg);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
+
+}
+
+.caption{
+    margin-top:15px;
+    font-size:18px;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-box{
+    width:min(600px,95vw);
+    padding:40px 25px;
+    border-radius:30px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.final-box h1{
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.final-message{
+    margin-top:25px;
+    font-size:20px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    font-size:25px;
+    pointer-events:none;
+    animation:heartFloat 4s linear forwards;
+    z-index:999;
+}
+
+@keyframes heartFloat{
+
+    from{
+        transform:
+        translateY(0)
+        rotate(0);
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:500px){
+
+    .password-card{
+        padding:25px 15px;
+    }
+
+    .key{
+        height:58px;
+    }
+
+    .letter-box{
+        padding:25px 20px;
+        max-height:70vh;
+    }
+
+    .letter-content{
+        font-size:16px;
+        line-height:1.75;
+    }
+
+    .final-box h1{
+        font-size:32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     1. PASSWORD SCREEN
+===================================================== -->
+
+<section
+id="passwordScreen"
+class="screen active">
+
+<div class="password-card">
+
+<div class="character">
+🐼
+</div>
+
+<h1>
+Enter a Passcode
+</h1>
+
+<p>
+💗 A little surprise awaits you...
+</p>
+
+<br>
+
+<p>
+Six hearts.<br>
+One secret code.
+</p>
+
+
+<div class="pass-dots">
+
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+
+</div>
+
+
+<div class="keypad">
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(1)">
+♥<br>1
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(2)">
+♥<br>2
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(3)">
+♥<br>3
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(4)">
+♥<br>4
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(5)">
+♥<br>5
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(6)">
+♥<br>6
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(7)">
+♥<br>7
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(8)">
+♥<br>8
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(9)">
+♥<br>9
+</button>
+
+<button
+type="button"
+class="key"
+onclick="clearPassword()">
+♥<br>C
+</button>
+
+<button
+type="button"
+class="key"
+onclick="numberPressed(0)">
+♥<br>0
+</button>
+
+<button
+type="button"
+class="key"
+onclick="checkPassword()">
+♥<br>✓
+</button>
+
+</div>
+
+
+<div
+id="passwordStatus"
+class="status">
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     2. COUNTDOWN
+===================================================== -->
+
+<section
+id="countdownScreen"
+class="screen">
+
+<div class="countdown-title">
+
+🔐 ACCESS GRANTED
+
+<br><br>
+
+Get ready, Gangu Kothi... ❤️
+
+</div>
+
+
+<div
+id="countdown"
+class="count">
+
+10
+
+</div>
+
+
+<p>
+Something special is coming... 🎂
+</p>
+
+</section>
+
+
+
+<!-- =====================================================
+     3. BIRTHDAY REVEAL
+===================================================== -->
+
+<section
+id="birthdayScreen"
+class="screen birthday">
+
+<h1>
+🎉 HAPPY BIRTHDAY 🎉
+</h1>
+
+<h2>
+❤️ GANGU KOTHI ❤️
+</h2>
+
+<p>
+Another beautiful year unlocked! 🎂
+</p>
+
+<button
+type="button"
+class="next"
+onclick="openCake()">
+
+Continue ❤️
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+     4. CAKE
+===================================================== -->
+
+<section
+id="cakeScreen"
+class="screen">
+
+<h1>
+🎂 Make a Wish 🎂
+</h1>
+
+
+<p
+class="blow-status"
+id="blowStatus">
+
+Your cake is waiting... ❤️
+
+<br>
+
+Blow out all 5 candles!
+
+</p>
+
+
+<div class="cake-area">
+
+<div class="plate"></div>
+
+
+<div class="cake">
+
+<div class="cream"></div>
+
+<div class="cake-top"></div>
+
+<div class="cake-bottom"></div>
+
+</div>
+
+
+<div class="candles">
+
+<div
+class="candle"
+id="candle1">
+
+<div class="flame"></div>
+
+</div>
+
+
+<div
+class="candle"
+id="candle2">
+
+<div class="flame"></div>
+
+</div>
+
+
+<div
+class="candle"
+id="candle3">
+
+<div class="flame"></div>
+
+</div>
+
+
+<div
+class="candle"
+id="candle4">
+
+<div class="flame"></div>
+
+</div>
+
+
+<div
+class="candle"
+id="candle5">
+
+<div class="flame"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<button
+type="button"
+class="next"
+onclick="startMicrophone()">
+
+🎤 Start Blowing
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+     5. LETTER
+===================================================== -->
+
+<section
+id="letterScreen"
+class="screen">
+
+
+<div class="letter-box">
+
+<h1>
+💌 A Letter For Gangu Kothi
+</h1>
+
+
+<div class="letter-content">
+
+
+<p>
+<strong>
+Happiest birthday ra puthraa ❤️💜💞
+</strong>
+</p>
+
+
+<p>
+Asal epdu ankoledhu nv nak frd avthav ani intha close avthav ani... but happens... Starting lo asal padedhi kadhu manaki but by gids Grace matladukovatame kadhu closefrds kuda ayyam....
+</p>
+
+
+<p>
+I don't y and how I became close because starting lo nv ante padedhi kadhu nik nen ela nachano Thelidhu... ala ala distance vachindhi and the day when we talk after a gap, that was the trigger point to us ante apdu thlsindhi matladkunte entha miss avthama intha close ayama ani.....
+</p>
+
+
+<p>
+Just mi akka vishyam lo nen nik support chesa antehy but since that day you stood behind me at every situation, my good days, bad days, happy moments and everything u r the one who share my every feeling after Rahul.......
+</p>
+
+
+<p>
+Tq tqsm tqs for everything..... studies vishyam lo help chesav.... em kavali ana thechisthav.....
+</p>
+
+
+<p>
+Amma ani pilchindhaniki mi amma la ne chuskuntunav.... adhey respect isthav care chesthav ye situation aina odhalakunda nathone unav.....
+</p>
+
+
+<p>
+Chpali ante chalaaaaa unai but opika ledhu idhey ekuva le ni mohaniki.... emotional aindhi chalu inka kallu thuduchukoniii next chudu......
+</p>
+
+
+<p>
+Once again happy happy happy happy happy happy happy happy birthday
+<strong>
+gangu ma ❤️
+</strong>
+</p>
+
+
+<p>
+Tqs for being my forever headache 🫂
+</p>
+
+
+<p class="signature">
+
+With lots of luv ...ur kothi ❤️
+
+<br>
+
+<strong>
+Ur amma 🫂
+</strong>
+
+</p>
+
+
+</div>
+
+</div>
+
+
+<button
+type="button"
+class="next"
+onclick="openPhotos()">
+
+Continue to Memories 📸
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+     6. PHOTOS
+===================================================== -->
+
+<section
+id="photoScreen"
+class="screen">
+
+
+<h1 class="photo-title">
+📸 Our Memories ❤️
+</h1>
+
+
+<div class="photo-container">
+
+<img
+id="currentPhoto"
+src="images/photo1.jpg"
+alt="Memory photo">
+
+</div>
+
+
+<div
+id="photoCaption"
+class="caption">
+
+My Forever Kothi 🐒❤️
+
+</div>
+
+
+<button
+type="button"
+class="next"
+onclick="nextPhoto()">
+
+Next →
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+     7. FINAL SURPRISE
+===================================================== -->
+
+<section
+id="finalScreen"
+class="screen">
+
+
+<div class="final-box">
+
+
+<h1>
+🎁 One Last Thing...
+</h1>
+
+
+<p>
+
+You survived the password...
+
+<br><br>
+
+You survived the countdown...
+
+<br><br>
+
+You blew out the candles...
+
+<br><br>
+
+You opened the letter...
+
+<br><br>
+
+You went through our memories...
+
+<br><br>
+
+And now...
+
+</p>
+
+
+<button
+type="button"
+class="next"
+id="finalButton"
+onclick="unlockFinal()">
+
+🔓 Unlock Final Surprise
+
+</button>
+
+
+<div
+id="finalMessage"
+class="final-message">
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+id="birthdaySong"
+src="music/birthday.mp3"
+preload="auto">
+</audio>
+
+
+<audio
+id="memorySong"
+src="music/memory.mp3"
+preload="auto">
+</audio>
+
+
+
+<script>
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+let password = "";
+
+const correctPassword = "110904";
+
+
+function numberPressed(number){
+
+    if(password.length >= 6){
+        return;
+    }
+
+    password += String(number);
+
+    updateDots();
+
+}
+
+
+function updateDots(){
+
+    const dots =
+        document.querySelectorAll(".dot");
+
+    dots.forEach((dot,index)=>{
+
+        if(index < password.length){
+
+            dot.classList.add("active");
+
+        }else{
+
+            dot.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+function clearPassword(){
+
+    password = "";
+
+    updateDots();
+
+    document
+        .getElementById("passwordStatus")
+        .innerText = "";
+
+}
+
+
+function checkPassword(){
+
+    const status =
+        document.getElementById("passwordStatus");
+
+
+    if(password === correctPassword){
+
+        status.innerText =
+            "🔓 ACCESS GRANTED ❤️";
+
+
+        setTimeout(
+            startCountdown,
+            400
+        );
+
+    }else{
+
+        status.innerText =
+            "❌ Wrong password! Try again 😂";
+
+        password = "";
+
+        updateDots();
+
+    }
+
+}
+
+
+/* =====================================================
+   SCREEN CHANGE
+===================================================== */
+
+function showScreen(screenID){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen=>{
+
+            screen.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(screenID);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+}
+
+
+/* =====================================================
+   COUNTDOWN + BIRTHDAY SONG
+===================================================== */
+
+function startCountdown(){
+
+    showScreen("countdownScreen");
+
+
+    const birthdaySong =
+        document.getElementById("birthdaySong");
+
+
+    if(birthdaySong){
+
+        birthdaySong.currentTime = 0;
+
+        birthdaySong.volume = 1;
+
+
+        birthdaySong.play().catch(()=>{
+
+            console.log(
+                "Birthday song could not start."
+            );
+
+        });
+
+    }
+
+
+    let number = 10;
+
+
+    document
+        .getElementById("countdown")
+        .innerText = number;
+
+
+    const timer =
+        setInterval(()=>{
+
+            number--;
+
+
+            if(number > 0){
+
+                document
+                    .getElementById("countdown")
+                    .innerText = number;
+
+            }else{
+
+                clearInterval(timer);
+
+
+                document
+                    .getElementById("countdown")
+                    .innerText = "❤️";
+
+
+                setTimeout(
+                    showBirthday,
+                    700
+                );
+
+            }
+
+        },1000);
+
+}
+
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+function showBirthday(){
+
+    showScreen("birthdayScreen");
+
+    createManyHearts();
+
+}
+
+
+/* =====================================================
+   HEARTS
+===================================================== */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+
+    heart.className =
+        "heart";
+
+
+    heart.innerHTML =
+        "❤️";
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },4000);
+
+}
+
+
+function createManyHearts(){
+
+    for(let i=0;i<60;i++){
+
+        setTimeout(
+            createHeart,
+            i*60
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   CAKE
+===================================================== */
+
+function openCake(){
+
+    showScreen("cakeScreen");
+
+}
+
+
+/* =====================================================
+   MICROPHONE
+===================================================== */
+
+let audioContext = null;
+
+let analyser = null;
+
+let microphone = null;
+
+let microphoneStream = null;
+
+let candlesBlown = 0;
+
+let lastBlowTime = 0;
+
+
+async function startMicrophone(){
+
+    try{
+
+        if(audioContext){
+
+            return;
+
+        }
+
+
+        if(
+            !navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia
+        ){
+
+            document
+                .getElementById("blowStatus")
+                .innerHTML =
+                "⚠️ Microphone is not supported here." +
+                "<br><br>" +
+                "Please use Chrome or Edge.";
+
+            return;
+
+        }
+
+
+        const stream =
+            await navigator
+                .mediaDevices
+                .getUserMedia({
+                    audio:true
+                });
+
+
+        microphoneStream =
+            stream;
+
+
+        audioContext =
+            new(
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+
+        analyser =
+            audioContext
+                .createAnalyser();
+
+
+        analyser.fftSize = 256;
+
+
+        microphone =
+            audioContext
+                .createMediaStreamSource(
+                    stream
+                );
+
+
+        microphone.connect(
+            analyser
+        );
+
+
+        document
+            .getElementById("blowStatus")
+            .innerHTML =
+            "🎤 Microphone ready!" +
+            "<br><br>" +
+            "Blow toward your phone 💨";
+
+
+        detectBlow();
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+
+        document
+            .getElementById("blowStatus")
+            .innerHTML =
+            "⚠️ Microphone permission required." +
+            "<br><br>" +
+            "Press the button again and choose Allow.";
+
+    }
+
+}
+
+
+/* =====================================================
+   BLOW DETECTION
+===================================================== */
+
+function detectBlow(){
+
+    if(!analyser){
+
+        return;
+
+    }
+
+
+    const data =
+        new Uint8Array(
+            analyser.frequencyBinCount
+        );
+
+
+    analyser.getByteFrequencyData(
+        data
+    );
+
+
+    let total = 0;
+
+
+    for(
+        let i=0;
+        i<data.length;
+        i++
+    ){
+
+        total += data[i];
+
+    }
+
+
+    const volume =
+        total / data.length;
+
+
+    const now =
+        Date.now();
+
+
+    if(
+        volume > 45 &&
+        now - lastBlowTime > 1200 &&
+        candlesBlown < 5
+    ){
+
+        lastBlowTime =
+            now;
+
+
+        blowCandle();
+
+    }
+
+
+    requestAnimationFrame(
+        detectBlow
+    );
+
+}
+
+
+/* =====================================================
+   BLOW CANDLE
+===================================================== */
+
+function blowCandle(){
+
+    candlesBlown++;
+
+
+    const candle =
+        document.getElementById(
+            "candle" + candlesBlown
+        );
+
+
+    if(candle){
+
+        candle.classList.add("off");
+
+    }
+
+
+    const remaining =
+        5 - candlesBlown;
+
+
+    if(remaining > 0){
+
+        document
+            .getElementById("blowStatus")
+            .innerHTML =
+            "💨 Candle blown out!" +
+            "<br><br>" +
+            remaining +
+            " candles remaining ❤️";
+
+    }else{
+
+        document
+            .getElementById("blowStatus")
+            .innerHTML =
+            "🎉 ALL 5 CANDLES BLOWN OUT! 🎉";
+
+
+        stopMicrophone();
+
+
+        setTimeout(
+            openLetter,
+            1500
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   STOP MICROPHONE
+===================================================== */
+
+function stopMicrophone(){
+
+    if(microphoneStream){
+
+        microphoneStream
+            .getTracks()
+            .forEach(track=>{
+                track.stop();
+            });
+
+        microphoneStream = null;
+
+    }
+
+
+    if(audioContext){
+
+        audioContext.close();
+
+        audioContext = null;
+
+    }
+
+
+    analyser = null;
+
+    microphone = null;
+
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+function openLetter(){
+
+    showScreen("letterScreen");
+
+}
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+const photos = [
+
+    "images/photo1.jpg",
+
+    "images/photo2.jpg",
+
+    "images/photo3.jpg",
+
+    "images/photo4.jpg",
+
+    "images/photo5.jpg",
+
+    "images/photo6.jpg",
+
+    "images/photo7.jpg",
+
+    "images/photo8.jpg"
+
+];
+
+
+const captions = [
+
+    "My Forever Kothi ❤️",
+
+    "Two idiots. One friendship. ❤️",
+
+    "const supporter❤️ ",
+
+    "Still can't forget this 😂",
+
+    "One of my favourite memories ❤️",
+
+    "More madness 😂",
+
+    "Another unforgettable moment ❤️",
+
+    "And many more memories to come ♾️"
+
+];
+
+
+let photoIndex = 0;
+
+
+/* =====================================================
+   OPEN PHOTOS
+===================================================== */
+
+function openPhotos(){
+
+    const birthdaySong =
+        document.getElementById(
+            "birthdaySong"
+        );
+
+
+    if(birthdaySong){
+
+        birthdaySong.pause();
+
+        birthdaySong.currentTime = 0;
+
+    }
+
+
+    const memorySong =
+        document.getElementById(
+            "memorySong"
+        );
+
+
+    if(memorySong){
+
+        memorySong.currentTime = 0;
+
+        memorySong.volume = 1;
+
+
+        memorySong.play().catch(()=>{
+
+            console.log(
+                "Memory song could not start."
+            );
+
+        });
+
+    }
+
+
+    photoIndex = 0;
+
+
+    showPhoto();
+
+
+    showScreen("photoScreen");
+
+}
+
+
+/* =====================================================
+   SHOW PHOTO
+===================================================== */
+
+function showPhoto(){
+
+    const image =
+        document.getElementById(
+            "currentPhoto"
+        );
+
+
+    const caption =
+        document.getElementById(
+            "photoCaption"
+        );
+
+
+    image.style.animation =
+        "none";
+
+
+    void image.offsetWidth;
+
+
+    image.src =
+        photos[photoIndex];
+
+
+    image.alt =
+        "Memory " +
+        (photoIndex + 1);
+
+
+    image.style.animation =
+        "photoIn 1s ease";
+
+
+    caption.innerText =
+        captions[photoIndex];
+
+}
+
+
+/* =====================================================
+   NEXT PHOTO
+===================================================== */
+
+function nextPhoto(){
+
+    photoIndex++;
+
+
+    if(
+        photoIndex <
+        photos.length
+    ){
+
+        showPhoto();
+
+    }else{
+
+        openFinal();
+
+    }
+
+}
+
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+function openFinal(){
+
+    const memorySong =
+        document.getElementById(
+            "memorySong"
+        );
+
+
+
+    showScreen("finalScreen");
+
+}
+
+
+/* =====================================================
+   FINAL SURPRISE
+===================================================== */
+
+function unlockFinal(){
+
+    const button =
+        document.getElementById(
+            "finalButton"
+        );
+
+
+    const message =
+        document.getElementById(
+            "finalMessage"
+        );
+
+
+    button.style.display =
+        "none";
+
+
+    message.innerHTML =
+
+        "❤️ Gangu Kothi ❤️" +
+
+        "<br><br>" +
+
+        "You're not just my friend..." +
+
+        "<br>" +
+
+        "You're my forever headache 😂🫂" +
+
+        "<br><br>" +
+
+        "Happy Birthday once again! 🎂🎉" +
+
+        "<br><br>" +
+
+        "With lots and lots of love ❤️" +
+
+        "<br>" +
+
+        "— Ur Kothi / Ur Amma 🫂";
+
+
+    createManyHearts();
+
+}
+
+
+/* =====================================================
+   KEYBOARD SUPPORT
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key >= "0" &&
+            event.key <= "9"
+        ){
+
+            numberPressed(
+                Number(event.key)
+            );
+
+        }
+
+
+        if(event.key === "Backspace"){
+
+            password =
+                password.slice(
+                    0,
+                    -1
+                );
+
+            updateDots();
+
+        }
+
+
+        if(event.key === "Enter"){
+
+            checkPassword();
+
+        }
+
+
+        if(event.key === "Escape"){
+
+            clearPassword();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIAL SETUP
+===================================================== */
+
+updateDots();
+
+</script>
+
+</body>
+</html>
