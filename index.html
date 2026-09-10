@@ -1621,6 +1621,11 @@ const photos = [
     "images/photo8.jpg"
 
 ];
+   // Preload all memory photos
+photos.forEach(function(src) {
+    const img = new Image();
+    img.src = src;
+});
 
 
 const captions = [
